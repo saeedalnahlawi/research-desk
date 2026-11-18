@@ -1,0 +1,50 @@
+{
+  "_comment": "Generated from EDGAR facts, FY2025. Verify net debt and share count before publishing.",
+  "name": "T (EDGAR FY2025)",
+  "ticker": "T",
+  "currency": "USD",
+  "base_year": 2025,
+  "price": 22.29,
+  "price_date": "latest local price file",
+  "shares_m": 6736.5,
+  "revenue": 125648.0,
+  "ebitda": 45048.0,
+  "da": 20886.0,
+  "capex": 16334.24,
+  "tax_rate": 0.134,
+  "net_income": 21953.0,
+  "gross_debt": 134718.0,
+  "cash": 18234.0,
+  "net_debt": 116484.0,
+  "book_equity": 0.0,
+  "forecast": {
+    "years": 8,
+    "revenue_growth": [
+      0.0142,
+      0.015,
+      0.0159,
+      0.0167,
+      0.0175,
+      0.0183,
+      0.0192,
+      0.02
+    ],
+    "ebitda_margin": 0.3585,
+    "capex_pct_of_revenue": 0.13,
+    "da_pct_of_revenue": 0.1662,
+    "nwc_pct_of_revenue_change": 0.02,
+    "mid_year_convention": true
+  },
+  "wacc": {
+    "rf": 0.0512,
+    "beta": 0.7,
+    "erp": 0.045,
+    "kd": 0.05,
+    "use_market_weights": true
+  },
+  "terminal_g": 0.02,
+  "peers": {
+    "_source": "fill from a peer set before trusting the multiples leg",
+    "discount_for_size_liquidity": 0.0
+  }
+}
