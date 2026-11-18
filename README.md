@@ -23,6 +23,7 @@ asserted. Every number in a published note traces back to a script in this repos
 | `profiles/` | Valuation inputs per company (`jtel.json`, `t.json`) |
 | `notes/` | Valuation notes: `arabbank-valuation.md`, `dcf-engine-demo.md` |
 | `reviews/` | Model reviews and source verification: `orange-model-review.md`, `jtel-verification.md` |
+| `docs/how-i-work.md` | Method, standards and limitations — read this first |
 | `docs/methods-by-sector.md` | Which method applies to which sector, and what changes for US filers |
 | `journal/` | Trading journal template (paper trading) — kept separate from the analysis |
 | `data/` | Generated. Not committed. |
