@@ -69,7 +69,13 @@ def main() -> int:
     for label, stmt in split_statements(sqlf.read_text()):
         if a.only and label != a.only:
             continue
-        show(con, label, stmt)
+        try:
+            show(con, label, stmt)
+        except sqlite3.OperationalError as e:
+            print(f"\n### {label}  SKIPPED: {e}")
+            print("    (if this says 'no such table: manual_figures', run "
+                  "scripts/load_manual.py first)")
+
     con.close()
     return 0
 
