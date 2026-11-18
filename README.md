@@ -63,5 +63,6 @@ handle it rather than quietly dropping the row.
 
 ## Roadmap
 
-See `../../roadmap.md` in the parent workspace: 16 weeks, W01 starting 22 Nov 2026.
-Gate 1 (Week 4): this repo reproduces a ratio table for three companies from one command.
+This repository is built in public, one sector at a time. The method is fixed (`docs/how-i-work.md`); the
+coverage grows. Next: a telecom note from `scripts/value_telecom.py`, then a third sector so the portfolio is
+not two banks and a phone company.
