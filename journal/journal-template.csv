@@ -1,0 +1,2 @@
+date,symbol,timeframe,setup_name,direction,entry_planned,stop,invalid_level,target_r,risk_pct_of_account,position_size,entry_actual,exit_actual,result_r,followed_rules,rule_broken,note
+2026-01-01,EXAMPLE,BTC 4h,trend pullback to 20EMA,long,60000,58800,close below 50EMA,2,1,0.00833,,,,yes,,worked example - delete this row

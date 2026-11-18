@@ -1,0 +1,22 @@
+# generated data — never commit
+data/
+*.db
+*.sqlite
+
+# credentials and local config
+.env
+*.key
+
+# FinGuard AI — private project, intentionally excluded from the public repo
+finguard/
+FinGuard*
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# editors / OS
+.vscode/
+.DS_Store
