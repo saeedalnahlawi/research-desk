@@ -1,6 +1,8 @@
 # How I work
 
 I value listed companies and publish the model, the data and the assumptions — including the ones I got wrong.
+The universe is US-listed companies (NYSE, NASDAQ) as well as Amman Stock Exchange and GCC names; the method
+follows the business, not the exchange.
 Every number in every note traces to a filing or a dated market source, and every note can be re-run from this
 repository.
 
@@ -37,7 +39,7 @@ The valuation method follows the business, not the exchange:
 
 | Layer | Where |
 |---|---|
-| Data ingestion | `scripts/fetch_sec.py` (EDGAR), `scripts/fetch_prices.py`, manual entry for ASE filers |
+| Data ingestion | `scripts/fetch_sec.py` (EDGAR, US filers), `scripts/fetch_prices.py`, manual entry with page references for ASE/GCC filers |
 | Analysis | `sql/*.sql`, `scripts/run_queries.py` |
 | Valuation engines | `scripts/value_bank.py`, `scripts/value_dcf.py`, `scripts/value_telecom.py` |
 | Inputs per company | `profiles/*.json` — every assumption visible in one file |
