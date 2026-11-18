@@ -50,6 +50,13 @@ CONCEPTS = [
     "LongTermDebtNoncurrent",
     "InterestExpense",
     "EarningsPerShareDiluted",
+    # cash-flow and DCF inputs
+    "NetCashProvidedByUsedInOperatingActivities",
+    "PaymentsToAcquirePropertyPlantAndEquipment",
+    "DepreciationDepletionAndAmortization",
+    "IncomeTaxExpenseBenefit",
+    "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+    "LongTermDebt",
 ]
 
 

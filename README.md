@@ -16,6 +16,11 @@ asserted. Every number in a published note traces back to a script in this repos
 | `notes/` | Published research notes, one markdown file per company |
 | `data/manual/` | Hand-entered bank figures (Arab Bank: FY2024, FY2025, H1 2026) + the definitions that matter |
 | `sql/bank_queries.sql` | Bank ratios (ROE, NIM, cost/income, NPL), P/B vs P/E, and the implied-ROE identity |
+| `scripts/value_bank.py` | Residual-income valuation for banks, with sensitivity grid (ARBK) |
+| `scripts/value_dcf.py` | FCFF DCF for non-financials: EDGAR → forecast → WACC → EV → per share, plus reverse DCF |
+| `scripts/fetch_prices.py` / `estimate_beta.py` | Daily closes (Nasdaq API) and beta by regression vs SPY |
+| `notes/` | Valuation notes: `arabbank-valuation.md`, `dcf-engine-demo.md` |
+| `docs/methods-by-sector.md` | Which method applies to which sector, and what changes for US filers |
 | `journal/` | Trading journal template (paper trading) — kept separate from the analysis |
 | `data/` | Generated. Not committed. |
 
