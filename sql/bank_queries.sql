@@ -66,3 +66,18 @@ SELECT period,
 FROM manual_figures
 GROUP BY period, year, is_interim
 ORDER BY year, is_interim;
+
+-- Q8. Our multiple versus the exchange's own published multiple.
+--     The exchange's P/E is an external figure whose basis is not documented; it is recorded
+--     in data/manual/ase_quotes.csv with its date and used as-is. Any gap is disclosed in the note,
+--     not explained away.
+SELECT q.quote_date, q.ticker,
+       q.price_jod                                        AS ase_price_jod,
+       q.pe_ase                                           AS pe_exchange,
+       (SELECT ROUND(pe_x, 2) FROM bank_multiples
+         ORDER BY year DESC, is_interim DESC LIMIT 1)      AS pe_model_latest,
+       (SELECT ROUND(pb_x, 2) FROM bank_multiples
+         ORDER BY year DESC, is_interim DESC LIMIT 1)      AS pb_model_latest,
+       ROUND(q.pe_ase - (SELECT pe_x FROM bank_multiples
+         ORDER BY year DESC, is_interim DESC LIMIT 1), 2)  AS pe_gap
+FROM ase_quotes q;

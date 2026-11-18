@@ -83,16 +83,25 @@ implying a historical series was consulted.
 Cross-check the current price against the exchange's own page (ase.com.jo/en/company_historical/ARBK) —
 on 18 Nov 2026 it showed a closing price of 7.47 and a P/E of 8.29.
 
-### Known discrepancy — unresolved, do not paper over it
+### Exchange-quoted P/E — adopted, dated, and disclosed
 
-At ARBK 7.45 the model gives a P/E near 5.7, while the exchange displays **8.29**. One of the two
-denominators differs — most likely the exchange uses a different profit figure (for example excluding the
-share of associates' profits, or a trailing four-quarter basis), or a different share count. **Resolve this
-before publishing any P/E in a note.** A multiple that contradicts the exchange's own quoted number is the
-first thing a reviewer will check, and "my spreadsheet says otherwise" is not an answer.
+Decision (Saeed, 18 Nov 2026): **use the exchange's published P/E** rather than the model's own construction
+where a P/E is quoted. It is stored in `data/manual/ase_quotes.csv` with its date and source, loaded into the
+`ase_quotes` table, and reported by Q8 next to the model's figure:
 
-P/B is not affected by that dispute: market capitalisation ÷ book equity is unambiguous once the FX rate is
-right.
+| Quote date | ASE price (JOD) | P/E as published by ASE | Model P/E (latest period) | Gap |
+|---|---|---|---|---|
+| 2026-11-18 | 7.47 | **8.29** | 5.73 | +2.56 |
+
+Reporting rule that comes with adopting it:
+
+- Call it **"exchange-quoted P/E"**, never "computed" — the exchange does not document its basis, so the
+  number is cited, not derived.
+- State the quote date in any note that uses it. It is a market snapshot, not a fiscal-period figure.
+- Disclose the gap (2.56x) in one line rather than hiding it. An unexplained difference between your number
+  and the exchange's is fine to publish when labelled; silently substituting one for the other is not.
+- **Prefer P/B for the valuation argument** (0.48x latest, computed from market cap ÷ book equity, replayable
+  from the repo). P/E is supporting colour, not the spine of the note.
 
 ## Verified arithmetic
 

@@ -81,6 +81,14 @@ SELECT entity, period, year, is_interim, price_jod, shares_m, fx,
              / NULLIF(profit_usd_m * (CASE WHEN is_interim = 1 THEN 2 ELSE 1 END), 0), 2) AS pe_x
 FROM m
 WHERE price_jod IS NOT NULL AND shares_m IS NOT NULL AND fx IS NOT NULL;
+
+-- Exchange-published quote, kept separate from the model's own multiples so the two can be
+-- compared side by side. Anything quoted here is the exchange's figure, not ours.
+DROP TABLE IF EXISTS ase_quotes;
+CREATE TABLE ase_quotes (
+    quote_date TEXT, ticker TEXT, price_jod REAL, pe_ase REAL, pb_ase REAL,
+    source TEXT, note TEXT
+);
 """
 
 # Item names normalised so a human can write the CSV in plain language.
@@ -171,13 +179,23 @@ def main() -> int:
     con = sqlite3.connect(db)
     con.executescript(SCHEMA)
     con.executemany("INSERT INTO manual_figures VALUES (?,?,?,?,?,?,?,?,?)", rows)
+
+    quotes_path = src.parent / "ase_quotes.csv"
+    n_quotes = 0
+    if quotes_path.is_file():
+        with quotes_path.open() as qf:
+            qrows = [{k: (v if v != "" else None) for k, v in r.items()} for r in csv.DictReader(qf)]
+        con.executemany(
+            "INSERT INTO ase_quotes VALUES (:quote_date,:ticker,:price_jod,:pe_ase,:pb_ase,:source,:note)",
+            qrows)
+        n_quotes = len(qrows)
     con.commit()
     n_ratio = con.execute("SELECT COUNT(*) FROM bank_ratios").fetchone()[0]
     n_mult = con.execute("SELECT COUNT(*) FROM bank_multiples").fetchone()[0]
     con.close()
 
     print(f"{entity}: loaded {len(rows)} values, {empty} empty cells, "
-          f"{n_ratio} period rows in bank_ratios, {n_mult} with multiples")
+          f"{n_ratio} period rows in bank_ratios, {n_mult} with multiples, {n_quotes} exchange quotes")
     if bad_period:
         print(f"unparsed periods (expected 'FY 2024' or 'H1 2026'): {sorted(bad_period)}")
     if not rows:
