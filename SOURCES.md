@@ -100,6 +100,13 @@ Reporting rule that comes with adopting it:
 - State the quote date in any note that uses it. It is a market snapshot, not a fiscal-period figure.
 - Disclose the gap (2.56x) in one line rather than hiding it. An unexplained difference between your number
   and the exchange's is fine to publish when labelled; silently substituting one for the other is not.
+**Reconciliation lead (18 Nov):** ASE's 8.29 implies profit of about **408.8m USD** at a 7.47 share price,
+against 1,083.3m attributable in the statements. Stripping the **share of associates' profits (628.6m)** gives
+454.7m → P/E 7.45; also removing perpetual interest (29.7m) gives 425m → 7.97. The exchange very likely quotes
+P/E on profit **excluding the associates' share**, which is enormous at Arab Bank and would explain most of the
+gap. Hypothesis, not confirmed — but it means the difference is a denominator difference, not evidence of
+mispricing.
+
 - **Prefer P/B for the valuation argument** (0.48x latest, computed from market cap ÷ book equity, replayable
   from the repo). P/E is supporting colour, not the spine of the note.
 
