@@ -19,7 +19,10 @@ asserted. Every number in a published note traces back to a script in this repos
 | `scripts/value_bank.py` | Residual-income valuation for banks, with sensitivity grid (ARBK) |
 | `scripts/value_dcf.py` | FCFF DCF for non-financials: EDGAR → forecast → WACC → EV → per share, plus reverse DCF |
 | `scripts/fetch_prices.py` / `estimate_beta.py` | Daily closes (Nasdaq API) and beta by regression vs SPY |
+| `scripts/value_telecom.py` | Telecom engine: DCF + peer multiples with size discount, reconciliation, plausibility gate, reverse DCF |
+| `profiles/` | Valuation inputs per company (`jtel.json`, `t.json`) |
 | `notes/` | Valuation notes: `arabbank-valuation.md`, `dcf-engine-demo.md` |
+| `reviews/` | Model reviews and source verification: `orange-model-review.md`, `jtel-verification.md` |
 | `docs/methods-by-sector.md` | Which method applies to which sector, and what changes for US filers |
 | `journal/` | Trading journal template (paper trading) — kept separate from the analysis |
 | `data/` | Generated. Not committed. |

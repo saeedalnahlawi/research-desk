@@ -50,12 +50,17 @@ the filing before quoting a number.
 
 ## Orange Jordan (JTEL) — result
 
-Base year FY2023: revenue 360.7m, EBITDA 146.5m (40.6%), D&A 83.0m, capex 72.1m, net debt 6.3m,
-price 2.90 (12 Dec 2024), 187.5m shares.
+Base year FY2023, **verified line by line against the audited consolidated financial statements**
+(`reviews/jtel-verification.md`): revenue 360.7m, EBITDA 146.5m (40.6%), D&A 83.0m,
+**capex 84.7m (23.5% of revenue — PPE 78.3m + intangibles 6.3m, cash-flow statement p29)**, net debt 6.3m,
+price **2.88** (12 Dec 2024 close), 187.5m shares.
+
+Two corrections came out of verification: the profile first used a *forecast* capex line (72.1m, 19.5%) as the
+base year, and the workbook's price was 2.90 rather than the actual 2.88 close.
 
 | Method | Per share | vs market | Implied P/E |
 |---|---|---|---|
-| DCF (WACC 10.48%, g 2%, mid-year) | **4.01** | +38% | 16.4× |
+| DCF (WACC 10.47%, g 2%, mid-year, actual capex) | **2.94** | **+2%** | 12.0× |
 | EV/EBITDA (peers 6.51× → 5.21× after 20% discount) | **4.04** | +39% | — |
 | P/E (peers 12.5× → 10.0× after discount) | 2.44 | −16% | 10.0× |
 | Market | 2.90 | — | 11.9× |
@@ -70,9 +75,13 @@ divergence gets explained in the note, not averaged away.
 10.48%), or **terminal growth of −5.5%** (model: +2%). The market is pricing decline or a much higher risk
 premium, not the model's flat-to-modest growth.
 
-**Conclusion for the note:** fair value **3.60–4.05 JOD** (DCF and EV/EBITDA agree within 1%), against 2.90 —
-roughly **20–40% upside**, but the argument rests on the forecast and the terminal assumption, not on the
-multiples. State the market's implied decline explicitly; that is the strongest paragraph available.
+**Conclusion for the note:** fair value **2.94 JOD** against 2.88 — **fairly valued**. The reverse DCF confirms
+it: the market implies a 10.65% cost of capital and 1.70% terminal growth against the model's 10.47% and 2.0%.
+
+**The earlier 4.01 / +38% was a capex artefact.** Using the 19.5% forecast line instead of the audited 23.5%
+lifted the DCF by 1.07 JOD. Each percentage point of capex intensity is worth ~0.27 JOD per share — for a
+telecom, capex is the valuation. The honest published answer is a range of **2.4–3.7 JOD** across margin and
+capex outcomes, with 2.94 at the base case.
 
 ## Known limitations
 

@@ -1,35 +1,40 @@
 {
-  "_comment": "Orange Jordan (ASE: JTEL), base year FY2023 actuals from the CFA Challenge workbook. All amounts in JOD millions unless stated.",
+  "_comment": "Orange Jordan (ASE: JTEL), base year FY2023 actuals verified against the audited consolidated FS (FY2023 annual report, pp. 28-29). All amounts in JOD millions unless stated.",
   "name": "Orange Jordan (JTEL)",
   "ticker": "JTEL",
   "currency": "JOD",
   "base_year": 2023,
-  "price": 2.90,
+  "price": 2.88,
   "price_date": "2024-12-12",
   "shares_m": 187.5,
-
   "revenue": 360.716,
-  "ebitda": 146.470,
+  "ebitda": 146.47,
   "da": 83.005,
-  "capex": 72.112,
+  "capex": 84.671,
   "tax_rate": 0.271,
   "net_income": 45.748,
-
   "gross_debt": 73.098,
   "cash": 66.788,
-  "net_debt": 6.310,
+  "net_debt": 6.31,
   "book_equity": 304.762,
-
   "forecast": {
     "years": 8,
-    "revenue_growth": [0.045, 0.040, 0.040, 0.035, 0.035, 0.030, 0.030, 0.030],
+    "revenue_growth": [
+      0.045,
+      0.04,
+      0.04,
+      0.035,
+      0.035,
+      0.03,
+      0.03,
+      0.03
+    ],
     "ebitda_margin": 0.395,
-    "capex_pct_of_revenue": 0.195,
+    "capex_pct_of_revenue": 0.235,
     "da_pct_of_revenue": 0.215,
     "nwc_pct_of_revenue_change": 0.02,
     "mid_year_convention": true
   },
-
   "wacc": {
     "rf": 0.0675,
     "beta": 0.75,
@@ -37,13 +42,29 @@
     "kd": 0.065,
     "use_market_weights": true
   },
-
   "terminal_g": 0.02,
-
   "peers": {
     "_source": "CFA workbook Multiples sheet, eight MENA/GCC telecoms",
-    "ev_ebitda": [7.413, 6.201, 5.979, 7.344, 5.253, 4.631, 6.825, 7.709],
-    "pe": [14.589, 13.483, 11.542, 9.470, 10.951, 11.445, 14.727, 15.627],
-    "discount_for_size_liquidity": 0.20
+    "ev_ebitda": [
+      7.413,
+      6.201,
+      5.979,
+      7.344,
+      5.253,
+      4.631,
+      6.825,
+      7.709
+    ],
+    "pe": [
+      14.589,
+      13.483,
+      11.542,
+      9.47,
+      10.951,
+      11.445,
+      14.727,
+      15.627
+    ],
+    "discount_for_size_liquidity": 0.2
   }
 }
