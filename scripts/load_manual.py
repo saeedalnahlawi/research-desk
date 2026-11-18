@@ -32,54 +32,92 @@ CREATE TABLE manual_figures (
 CREATE INDEX idx_manual ON manual_figures (entity, item, year);
 
 -- One row per period with the bank metrics that matter.
--- roe_pct is annualised for interim periods (x2 for H1) so it is comparable
--- with a full year; nim, cost/income and balance-sheet ratios need no scaling.
+-- Flow ratios (ROE, NIM) are annualised for interim periods (x2 for H1) so they compare
+-- with a full year; stock ratios and ratios of two flows are not scaled.
 DROP VIEW IF EXISTS bank_ratios;
 CREATE VIEW bank_ratios AS
 SELECT entity, period, year, is_interim,
-       ROUND(MAX(CASE WHEN item = 'net_profit' THEN value END)
+       ROUND(MAX(CASE WHEN item = 'profit' THEN value END)
              / NULLIF(MAX(CASE WHEN item = 'total_equity' THEN value END), 0) * 100
-             * (CASE WHEN is_interim = 1 THEN 2 ELSE 1 END), 1)                                    AS roe_pct,
-       ROUND((MAX(CASE WHEN item = 'net_interest_income' THEN value END)
-              + MAX(CASE WHEN item = 'non_interest_income' THEN value END))
-             / NULLIF(MAX(CASE WHEN item = 'operating_expenses' THEN value END), 0), 2)            AS income_to_cost_x,
+             * (CASE WHEN is_interim = 1 THEN 2 ELSE 1 END), 2)                                   AS roe_pct,
        ROUND(MAX(CASE WHEN item = 'net_interest_income' THEN value END)
-             / NULLIF(MAX(CASE WHEN item = 'total_assets' THEN value END), 0) * 100, 2)            AS nim_on_assets_pct,
-       ROUND(MAX(CASE WHEN item = 'customer_deposits' THEN value END)
-             / NULLIF(MAX(CASE WHEN item = 'total_assets' THEN value END), 0) * 100, 1)            AS deposits_to_assets_pct,
-       ROUND(MAX(CASE WHEN item = 'gross_loans' THEN value END)
-             / NULLIF(MAX(CASE WHEN item = 'customer_deposits' THEN value END), 0) * 100, 1)       AS loans_to_deposits_pct,
-       ROUND(MAX(CASE WHEN item = 'non_performing_loans' THEN value END)
-             / NULLIF(MAX(CASE WHEN item = 'gross_loans' THEN value END), 0) * 100, 2)             AS npl_ratio_pct,
-       MAX(CASE WHEN item = 'npl_coverage' THEN value END)                                         AS npl_coverage_pct,
-       MAX(CASE WHEN item = 'capital_adequacy' THEN value END)                                     AS car_pct
+             / NULLIF(MAX(CASE WHEN item = 'total_assets' THEN value END), 0) * 100
+             * (CASE WHEN is_interim = 1 THEN 2 ELSE 1 END), 2)                                   AS nim_on_assets_pct,
+       ROUND((MAX(CASE WHEN item = 'employees_expenses' THEN value END)
+              + MAX(CASE WHEN item = 'other_expenses' THEN value END)
+              + MAX(CASE WHEN item = 'depreciation' THEN value END))
+             / NULLIF(MAX(CASE WHEN item = 'total_income' THEN value END), 0) * 100, 1)           AS efficiency_ratio_pct,
+       ROUND(MAX(CASE WHEN item = 'total_expenses' THEN value END)
+             / NULLIF(MAX(CASE WHEN item = 'total_income' THEN value END), 0) * 100, 1)           AS cost_incl_ecl_pct,
+       ROUND(MAX(CASE WHEN item = 'dcf_net' THEN value END)
+             / NULLIF(MAX(CASE WHEN item = 'customer_deposits' THEN value END), 0) * 100, 1)      AS loans_to_deposits_pct,
+       ROUND(MAX(CASE WHEN item = 'total_equity' THEN value END)
+             / NULLIF(MAX(CASE WHEN item = 'total_assets' THEN value END), 0) * 100, 2)           AS equity_to_assets_pct,
+       MAX(CASE WHEN item = 'npl_ratio' THEN value END)                                           AS npl_ratio_pct,
+       MAX(CASE WHEN item = 'car' THEN value END)                                                 AS car_pct,
+       MAX(CASE WHEN item = 'npl' THEN value END)                                                 AS npl_usd_m
 FROM manual_figures
 GROUP BY entity, period, year, is_interim;
 
--- Market multiples, where a share price and share count were entered.
+-- Market multiples. Currency trap: Arab Bank shares trade in JOD on the ASE while the
+-- statements are in USD, so a JOD/USD rate is required; without it P/B would be nonsense.
+-- The view returns no rows until price, share count and FX rate are all entered.
 DROP VIEW IF EXISTS bank_multiples;
 CREATE VIEW bank_multiples AS
-WITH mkt AS (
-    SELECT entity, period, year,
-           MAX(CASE WHEN item = 'share_price' THEN value END)       AS price,
-           MAX(CASE WHEN item = 'shares_outstanding' THEN value END) AS shares_m,
-           MAX(CASE WHEN item = 'total_equity' THEN value END)       AS equity,
-           MAX(CASE WHEN item = 'net_profit' THEN value END)         AS net_profit,
-           MAX(is_interim)                                           AS is_interim
+WITH m AS (
+    SELECT entity, period, year, MAX(is_interim) AS is_interim,
+           MAX(CASE WHEN item = 'share_price' THEN value END) AS price_jod,
+           MAX(CASE WHEN item = 'shares'      THEN value END) AS shares_m,
+           MAX(CASE WHEN item = 'fx_jod_usd'  THEN value END) AS fx,
+           MAX(CASE WHEN item = 'total_equity' THEN value END) AS equity_usd_m,
+           MAX(CASE WHEN item = 'profit'       THEN value END) AS profit_usd_m
     FROM manual_figures GROUP BY entity, period, year
 )
-SELECT entity, period, year, is_interim, price, shares_m,
-       ROUND(price * shares_m, 1)                                        AS market_cap_m,
-       ROUND(price * shares_m / NULLIF(equity, 0), 2)                     AS pb_x,
-       ROUND(price * shares_m
-             / NULLIF(net_profit * (CASE WHEN is_interim = 1 THEN 2 ELSE 1 END), 0), 2) AS pe_x
-FROM mkt
-WHERE price IS NOT NULL AND shares_m IS NOT NULL;
+SELECT entity, period, year, is_interim, price_jod, shares_m, fx,
+       ROUND(price_jod * shares_m, 1)                                          AS market_cap_jod_m,
+       ROUND(price_jod * shares_m / NULLIF(fx, 0), 1)                          AS market_cap_usd_m,
+       ROUND(price_jod * shares_m / NULLIF(fx, 0) / NULLIF(equity_usd_m, 0), 2) AS pb_x,
+       ROUND(price_jod * shares_m / NULLIF(fx, 0)
+             / NULLIF(profit_usd_m * (CASE WHEN is_interim = 1 THEN 2 ELSE 1 END), 0), 2) AS pe_x
+FROM m
+WHERE price_jod IS NOT NULL AND shares_m IS NOT NULL AND fx IS NOT NULL;
 """
 
 # Item names normalised so a human can write the CSV in plain language.
 ALIASES = {
+    "interest income": "interest_income",
+    "interest expense": "interest_expense",
     "net interest income": "net_interest_income",
+    "net commission income": "net_commission_income",
+    "non-interest income": "non_interest_income",
+    "total income": "total_income",
+    "employees expenses": "employees_expenses",
+    "employees' expenses": "employees_expenses",
+    "other expenses": "other_expenses",
+    "depreciation and amortization": "depreciation",
+    "provision for impairment ecl": "ecl",
+    "expected credit loss on financial assets": "ecl",
+    "impairment provisions": "impairment_provisions",
+    "total expenses": "total_expenses",
+    "operating expenses": "operating_expenses",
+    "profit for the year": "profit",
+    "profit for the period": "profit",
+    "net profit": "net_profit",
+    "total assets": "total_assets",
+    "direct credit facilities net": "dcf_net",
+    "gross loans and advances": "gross_loans",
+    "customer deposits": "customer_deposits",
+    "total equity": "total_equity",
+    "non-performing loans": "npl",
+    "non-performing loans (npl)": "npl",
+    "npl ratio": "npl_ratio",
+    "npl coverage ratio": "npl_coverage",
+    "capital adequacy ratio": "car",
+    "capital adequacy ratio (car)": "car",
+    "shares outstanding": "shares",
+    "fx rate (jod per usd)": "fx_jod_usd",
+    "fx rate": "fx_jod_usd",
+    "share price": "share_price",
     "non-interest income": "non_interest_income",
     "operating expenses": "operating_expenses",
     "impairment provisions": "impairment_provisions",
