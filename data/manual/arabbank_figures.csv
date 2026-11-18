@@ -18,8 +18,8 @@ FY 2024,Non-performing loans,2787.3,USD m,FS-2025 p60,stated in the note text
 FY 2024,NPL ratio,7.30,%,FS-2025 p60,as stated: 7.3% of total direct credit facilities
 FY 2024,Capital adequacy ratio,17.16,%,FS-2025 p113,Basel III; CET1 14.64%, tier 1 15.77%
 FY 2024,Shares outstanding,640.8,millions,FS-2025 p115,average number of shares
-FY 2024,Share price,,JOD,,MISSING - ASE closing price at 31 Dec 2024; state source and date
-FY 2024,FX rate (JOD per USD),,,ASE trades ARBK in JOD, statements are USD - enter the JOD/USD rate you used
+FY 2024,Share price,4.50,JOD,market data (WSJ ARBK),2024-12-30 last trading day of 2024 (WSJ ARBK close, JOD)
+FY 2024,FX rate (JOD per USD),0.708,,CBJ official, USD = 708 fils (peg),CBJ rate; JOD is pegged so it barely moves - 0.708 used for all three dates
 FY 2025,Interest income,4005.207,USD m,FS-2025 p10,reported USD 4 005 207 thousand
 FY 2025,Interest expense,1869.926,USD m,FS-2025 p10,reported USD 1 869 926 thousand
 FY 2025,Net interest income,2135.281,USD m,FS-2025 p10,check: income minus expense
@@ -39,8 +39,8 @@ FY 2025,Non-performing loans,2488.9,USD m,FS-2025 p59,stated in the note text
 FY 2025,NPL ratio,6.04,%,FS-2025 p59,as stated: 6.04% of total direct credit facilities
 FY 2025,Capital adequacy ratio,17.04,%,FS-2025 p113,Basel III; CET1 14.51%, tier 1 15.54%
 FY 2025,Shares outstanding,640.8,millions,FS-2025 p115,average number of shares
-FY 2025,Share price,,JOD,,MISSING - ASE closing price at 31 Dec 2025; state source and date
-FY 2025,FX rate (JOD per USD),,,ASE trades ARBK in JOD, statements are USD - enter the JOD/USD rate you used
+FY 2025,Share price,6.85,JOD,market data (WSJ ARBK),2025-12-31 close (WSJ ARBK, JOD)
+FY 2025,FX rate (JOD per USD),0.708,,CBJ official, USD = 708 fils (peg),CBJ rate; JOD is pegged so it barely moves - 0.708 used for all three dates
 H1 2026,Interest income,1898.430,USD m,Q2-2026 p5,six months; reported USD 1 898 430 thousand
 H1 2026,Interest expense,857.268,USD m,Q2-2026 p5,six months
 H1 2026,Net interest income,1041.162,USD m,Q2-2026 p5,check: income minus expense
@@ -60,5 +60,5 @@ H1 2026,Non-performing loans,2606.3,USD m,Q2-2026 p17,stated in the note text
 H1 2026,NPL ratio,6.19,%,Q2-2026 p17,as stated: 6.19% of total direct credit facilities
 H1 2026,Capital adequacy ratio,17.34,%,Q2-2026 p33,Basel III; CET1 14.71%, tier 1 15.87%
 H1 2026,Shares outstanding,640.8,millions,Q2-2026 p35,average number of shares
-H1 2026,Share price,,JOD,,MISSING - ASE closing price at 30 Jun 2026; state source and date
-H1 2026,FX rate (JOD per USD),,,ASE trades ARBK in JOD, statements are USD - enter the JOD/USD rate you used
+H1 2026,Share price,7.23,JOD,market data (WSJ ARBK),2026-06-30 close (WSJ ARBK, JOD)
+H1 2026,FX rate (JOD per USD),0.708,,CBJ official, USD = 708 fils (peg),CBJ rate; JOD is pegged so it barely moves - 0.708 used for all three dates

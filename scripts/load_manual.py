@@ -118,19 +118,6 @@ ALIASES = {
     "fx rate (jod per usd)": "fx_jod_usd",
     "fx rate": "fx_jod_usd",
     "share price": "share_price",
-    "non-interest income": "non_interest_income",
-    "operating expenses": "operating_expenses",
-    "impairment provisions": "impairment_provisions",
-    "net profit": "net_profit",
-    "total assets": "total_assets",
-    "gross loans and advances": "gross_loans",
-    "customer deposits": "customer_deposits",
-    "total equity": "total_equity",
-    "non-performing loans (npl)": "non_performing_loans",
-    "npl coverage ratio": "npl_coverage",
-    "capital adequacy ratio (car)": "capital_adequacy",
-    "share price": "share_price",
-    "shares outstanding": "shares_outstanding",
 }
 
 PERIOD_RE = re.compile(r"(FY|H1|9M|Q1|Q2|Q3|Q4)\s*(\d{4})", re.I)

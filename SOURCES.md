@@ -65,18 +65,34 @@ divided by 1,000.
 | Capital adequacy ratio | p33 | 17.34%; CET1 14.71%; tier 1 15.87% |
 | Shares outstanding | p35 | 640,800 thousand |
 
-## Still missing — and why it matters
+## Market data (price and FX) — the part that is not in the statements
 
-**Share price and the JOD/USD rate are not in the financial statements.** Arab Bank (ticker ARBK) trades on
-the Amman Stock Exchange in **JOD**, while the statements are in **USD**. To compute P/B you need:
+Arab Bank (ARBK) trades on the Amman Stock Exchange in **JOD**; the statements are in **USD**. Both inputs
+are therefore needed, and the currency conversion is where a P/B quietly goes wrong by ~40%.
 
-1. closing price in JOD on the balance-sheet date (31 Dec 2024, 31 Dec 2025, 30 Jun 2026) — ASE daily
-   bulletin, or the exchange's historical price page;
-2. the JOD/USD rate on the same date — Central Bank of Jordan published rate.
+| Period | Closing price (JOD) | Date used | Source |
+|---|---|---|---|
+| FY 2024 | 4.50 | 30 Dec 2024 (last trading day of 2024) | WSJ historical prices, ARBK (JO/XAMM) |
+| FY 2025 | 6.85 | 31 Dec 2025 | WSJ historical prices, ARBK |
+| H1 2026 | 7.23 | 30 Jun 2026 | WSJ historical prices, ARBK |
 
-Enter both in the CSV (`Share price`, `FX rate (JOD per USD)`) and Q4/Q5 in `sql/bank_queries.sql` come
-alive. Without the FX rate the view returns nothing, deliberately: a P/B mixing JOD market cap with USD book
-value would be wrong by roughly 40%, and wrong by an amount a reader cannot see.
+**FX rate: 0.708 JOD per USD**, from the Central Bank of Jordan's published rates (USD = 708 fils).
+The dinar is pegged to the dollar, so the same rate is used for all three dates; state that rather than
+implying a historical series was consulted.
+
+Cross-check the current price against the exchange's own page (ase.com.jo/en/company_historical/ARBK) —
+on 18 Nov 2026 it showed a closing price of 7.47 and a P/E of 8.29.
+
+### Known discrepancy — unresolved, do not paper over it
+
+At ARBK 7.45 the model gives a P/E near 5.7, while the exchange displays **8.29**. One of the two
+denominators differs — most likely the exchange uses a different profit figure (for example excluding the
+share of associates' profits, or a trailing four-quarter basis), or a different share count. **Resolve this
+before publishing any P/E in a note.** A multiple that contradicts the exchange's own quoted number is the
+first thing a reviewer will check, and "my spreadsheet says otherwise" is not an answer.
+
+P/B is not affected by that dispute: market capitalisation ÷ book equity is unambiguous once the FX rate is
+right.
 
 ## Verified arithmetic
 

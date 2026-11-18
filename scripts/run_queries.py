@@ -44,7 +44,12 @@ def show(con: sqlite3.Connection, label: str, stmt: str, width: int = 22) -> Non
         cells = []
         for v in r:
             if isinstance(v, float):
-                cells.append(f"{v:,.1f}")
+                if abs(v) < 1:
+                    cells.append(f"{v:,.4f}")
+                elif abs(v) < 1000:
+                    cells.append(f"{v:,.2f}")
+                else:
+                    cells.append(f"{v:,.1f}")
             else:
                 cells.append(str(v)[:width])
         print(" | ".join(cells))
