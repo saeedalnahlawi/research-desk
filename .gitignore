@@ -1,5 +1,6 @@
-# generated data — never commit
-data/
+# generated data — never commit (but hand-entered figures DO belong in the repo)
+/data/raw/
+/data/source/
 *.db
 *.sqlite
 

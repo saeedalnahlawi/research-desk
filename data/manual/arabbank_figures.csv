@@ -1,0 +1,64 @@
+period,item,value,unit,source_page,note
+FY 2024,Interest income,4013.607,USD m,FS-2025 p10,reported USD 4 013 607 thousand
+FY 2024,Interest expense,1868.321,USD m,FS-2025 p10,reported USD 1 868 321 thousand
+FY 2024,Net interest income,2145.286,USD m,FS-2025 p10,check: income minus expense
+FY 2024,Net commission income,453.068,USD m,FS-2025 p10,
+FY 2024,Total income,3395.007,USD m,FS-2025 p10,
+FY 2024,Employees expenses,786.204,USD m,FS-2025 p10,
+FY 2024,Other expenses,511.212,USD m,FS-2025 p10,
+FY 2024,Depreciation and amortization,117.551,USD m,FS-2025 p10,
+FY 2024,Provision for impairment ECL,490.730,USD m,FS-2025 p10,note 6
+FY 2024,Total expenses,1949.497,USD m,FS-2025 p10,includes ECL and other provisions
+FY 2024,Profit for the year,1007.090,USD m,FS-2025 p11,after tax; attributable to shareholders 969.126 on p115
+FY 2024,Total assets,71230.521,USD m,FS-2025 p9,
+FY 2024,Direct credit facilities net,34383.335,USD m,FS-2025 p9,net of ECL
+FY 2024,Customer deposits,49775.767,USD m,FS-2025 p9,
+FY 2024,Total equity,12134.899,USD m,FS-2025 p9,total shareholders equity incl perpetual tier 1
+FY 2024,Non-performing loans,2787.3,USD m,FS-2025 p60,stated in the note text
+FY 2024,NPL ratio,7.30,%,FS-2025 p60,as stated: 7.3% of total direct credit facilities
+FY 2024,Capital adequacy ratio,17.16,%,FS-2025 p113,Basel III; CET1 14.64%, tier 1 15.77%
+FY 2024,Shares outstanding,640.8,millions,FS-2025 p115,average number of shares
+FY 2024,Share price,,JOD,,MISSING - ASE closing price at 31 Dec 2024; state source and date
+FY 2024,FX rate (JOD per USD),,,ASE trades ARBK in JOD, statements are USD - enter the JOD/USD rate you used
+FY 2025,Interest income,4005.207,USD m,FS-2025 p10,reported USD 4 005 207 thousand
+FY 2025,Interest expense,1869.926,USD m,FS-2025 p10,reported USD 1 869 926 thousand
+FY 2025,Net interest income,2135.281,USD m,FS-2025 p10,check: income minus expense
+FY 2025,Net commission income,527.036,USD m,FS-2025 p10,
+FY 2025,Total income,3586.023,USD m,FS-2025 p10,
+FY 2025,Employees expenses,861.424,USD m,FS-2025 p10,
+FY 2025,Other expenses,567.389,USD m,FS-2025 p10,
+FY 2025,Depreciation and amortization,145.073,USD m,FS-2025 p10,
+FY 2025,Provision for impairment ECL,423.153,USD m,FS-2025 p10,note 6
+FY 2025,Total expenses,2030.774,USD m,FS-2025 p10,includes ECL and other provisions
+FY 2025,Profit for the year,1130.356,USD m,FS-2025 p11,after tax; attributable to shareholders 1083.344 on p115
+FY 2025,Total assets,78187.703,USD m,FS-2025 p9,
+FY 2025,Direct credit facilities net,37479.274,USD m,FS-2025 p9,net of ECL
+FY 2025,Customer deposits,54624.469,USD m,FS-2025 p9,
+FY 2025,Total equity,13233.002,USD m,FS-2025 p9,total shareholders equity incl perpetual tier 1
+FY 2025,Non-performing loans,2488.9,USD m,FS-2025 p59,stated in the note text
+FY 2025,NPL ratio,6.04,%,FS-2025 p59,as stated: 6.04% of total direct credit facilities
+FY 2025,Capital adequacy ratio,17.04,%,FS-2025 p113,Basel III; CET1 14.51%, tier 1 15.54%
+FY 2025,Shares outstanding,640.8,millions,FS-2025 p115,average number of shares
+FY 2025,Share price,,JOD,,MISSING - ASE closing price at 31 Dec 2025; state source and date
+FY 2025,FX rate (JOD per USD),,,ASE trades ARBK in JOD, statements are USD - enter the JOD/USD rate you used
+H1 2026,Interest income,1898.430,USD m,Q2-2026 p5,six months; reported USD 1 898 430 thousand
+H1 2026,Interest expense,857.268,USD m,Q2-2026 p5,six months
+H1 2026,Net interest income,1041.162,USD m,Q2-2026 p5,check: income minus expense
+H1 2026,Net commission income,275.735,USD m,Q2-2026 p5,
+H1 2026,Total income,1844.335,USD m,Q2-2026 p5,
+H1 2026,Employees expenses,450.685,USD m,Q2-2026 p5,
+H1 2026,Other expenses,283.886,USD m,Q2-2026 p5,
+H1 2026,Depreciation and amortization,71.311,USD m,Q2-2026 p5,
+H1 2026,Provision for impairment ECL,221.029,USD m,Q2-2026 p5,labelled Expected credit loss on financial assets
+H1 2026,Total expenses,1038.197,USD m,Q2-2026 p5,includes ECL and other provisions
+H1 2026,Profit for the period,570.855,USD m,Q2-2026 p6,six months; attributable to shareholders 546.990 on p35
+H1 2026,Total assets,80334.142,USD m,Q2-2026 p4,30 June 2026
+H1 2026,Direct credit facilities net,38294.647,USD m,Q2-2026 p4,net of ECL
+H1 2026,Customer deposits,56457.952,USD m,Q2-2026 p4,
+H1 2026,Total equity,13531.795,USD m,Q2-2026 p4,point in time - do not annualise
+H1 2026,Non-performing loans,2606.3,USD m,Q2-2026 p17,stated in the note text
+H1 2026,NPL ratio,6.19,%,Q2-2026 p17,as stated: 6.19% of total direct credit facilities
+H1 2026,Capital adequacy ratio,17.34,%,Q2-2026 p33,Basel III; CET1 14.71%, tier 1 15.87%
+H1 2026,Shares outstanding,640.8,millions,Q2-2026 p35,average number of shares
+H1 2026,Share price,,JOD,,MISSING - ASE closing price at 30 Jun 2026; state source and date
+H1 2026,FX rate (JOD per USD),,,ASE trades ARBK in JOD, statements are USD - enter the JOD/USD rate you used
