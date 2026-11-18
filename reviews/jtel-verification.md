@@ -107,10 +107,40 @@ capex line as the base year. Against the audited 23.5%, it's 2.94 — the stock 
 The honest statement is a range of **2.4–3.7 JOD** depending on margin and capex, with 2.94 at the base case —
 not a single number pretending to precision.
 
-## Still unverified
+## Peer multiples — refreshed 18 Nov 2026
 
-- **Peer multiples** (the eight GCC telecoms) come from the workbook and were not re-pulled. Before publication
-  they should be refreshed with a date and source, or the multiples leg removed.
+Re-pulled from stockanalysis.com statistics pages (TTM EV/EBITDA and P/E), replacing the workbook's undated
+figures:
+
+| Peer | Exchange | EV/EBITDA | P/E |
+|---|---|---|---|
+| Emirates Integrated (du) | DFM | 9.03 | 14.53 |
+| e& (Etisalat Group) | ADX | 9.74 | 16.50 |
+| Saudi Telecom | Tadawul 7010 | 6.81 | 15.83 |
+| Vodafone Qatar | QSE | 7.80 | 13.50 |
+| Etihad Etisalat (Mobily) | Tadawul 7020 | 6.37 | 12.46 |
+| Omantel | MSM | 5.12 | 8.62 |
+| Zain Saudi | Tadawul 7030 | 5.12 | 10.28 |
+| Ooredoo | QSE | 4.73 | 11.06 |
+| **Median** | | **6.59×** | **13.0×** |
+
+**Disclosure:** Zain Kuwait (KSE) has no TTM figures on the source used, so Zain Saudi is included in its place.
+The set is eight GCC operators, all larger and more diversified than Orange Jordan — which is why the 20%
+size/liquidity discount is applied.
+
+The refreshed medians (6.59× / 13.0×) are close to the workbook's (6.42× / 12.5×): **the original peer numbers
+were broadly right**, unlike the capex line. The multiples leg moves from 4.04 to 4.08 — the conclusion is
+unchanged.
+
+## Why the multiples leg still disagrees with the DCF
+
+EV/EBITDA at 5.27× (post-discount) on EBITDA of 146.5m gives 4.08 JOD, while the DCF gives 2.94. The multiple
+ignores capex, and the peer set is materially less capex-intensive than Orange Jordan at 23.5% of revenue. A
+capex-adjusted check makes the point: `EBITDA − capex = 61.8m`, and at the same 6.59× that is an EV of ~407m,
+or **2.14 JOD per share** — below the market. So the range across three framings is 2.14 / 2.94 / 4.08, and the
+DCF sits sensibly in the middle. **Lead with the DCF; use the multiples as a bounded sanity check.**
+
+## Still unverified
 - **Beta 0.75** is an assumption, not an estimate. JTEL monthly data exists in the workbook (13 points) — too
   few for a regression; either extend the history or state it as an assumption.
 - **WACC inputs** (rf 6.75%, ERP 6%) should be sourced and dated (Jordanian T-bill / CBJ, and a stated ERP

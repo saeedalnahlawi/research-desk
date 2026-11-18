@@ -44,26 +44,77 @@
   },
   "terminal_g": 0.02,
   "peers": {
-    "_source": "CFA workbook Multiples sheet, eight MENA/GCC telecoms",
+    "_source": "stockanalysis.com statistics pages, retrieved 2026-11-18; EV/EBITDA and P/E are TTM",
+    "_set": {
+      "DU": {
+        "name": "Emirates Integrated (du)",
+        "exchange": "DFM",
+        "ev_ebitda": 9.03,
+        "pe": 14.53
+      },
+      "EAND": {
+        "name": "e& (Etisalat Group)",
+        "exchange": "ADX",
+        "ev_ebitda": 9.74,
+        "pe": 16.5
+      },
+      "STC": {
+        "name": "Saudi Telecom",
+        "exchange": "Tadawul 7010",
+        "ev_ebitda": 6.81,
+        "pe": 15.83
+      },
+      "VFQS": {
+        "name": "Vodafone Qatar",
+        "exchange": "QSE",
+        "ev_ebitda": 7.8,
+        "pe": 13.5
+      },
+      "7020": {
+        "name": "Etihad Etisalat (Mobily)",
+        "exchange": "Tadawul 7020",
+        "ev_ebitda": 6.37,
+        "pe": 12.46
+      },
+      "OTEL": {
+        "name": "Omantel",
+        "exchange": "MSM",
+        "ev_ebitda": 5.12,
+        "pe": 8.62
+      },
+      "7030": {
+        "name": "Zain Saudi",
+        "exchange": "Tadawul 7030",
+        "ev_ebitda": 5.12,
+        "pe": 10.28
+      },
+      "ORDS": {
+        "name": "Ooredoo",
+        "exchange": "QSE",
+        "ev_ebitda": 4.73,
+        "pe": 11.06
+      }
+    },
+    "_excluded": "Zain Kuwait (KSE) has no TTM figures on the source used; Zain Saudi is included in its place and the substitution is disclosed",
     "ev_ebitda": [
-      7.413,
-      6.201,
-      5.979,
-      7.344,
-      5.253,
-      4.631,
-      6.825,
-      7.709
+      9.03,
+      9.74,
+      6.81,
+      7.8,
+      6.37,
+      5.12,
+      5.12,
+      4.73
     ],
     "pe": [
-      14.589,
-      13.483,
-      11.542,
-      9.47,
-      10.951,
-      11.445,
-      14.727,
-      15.627
+      14.53,
+      16.5,
+      15.83,
+      13.5,
+      12.46,
+      8.62,
+      10.28,
+      11.06
     ],
     "discount_for_size_liquidity": 0.2
   }
