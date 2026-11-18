@@ -27,6 +27,15 @@ TICKER_CIK = {
     "AT&T": "0000732717",
     "T": "0000732717",
 }
+# Ticker -> expected name fragment. A wrong CIK silently returns another company's
+# data, so the fetched entityName must match this or the script refuses to write.
+EXPECTED_NAME = {
+    "AAPL": "APPLE",
+    "KO": "COCA",
+    "MSFT": "MICROSOFT",
+    "JPM": "JPMORGAN",
+    "T": "AT&T",
+}
 CONCEPTS = [
     "Revenues",
     "RevenueFromContractWithCustomerExcludingAssessedTax",
@@ -95,6 +104,12 @@ def main() -> int:
             print(f"{t}: no CIK in map — add it to TICKER_CIK", file=sys.stderr)
             continue
         payload = fetch(cik)
+        name = (payload.get("entityName") or "").upper()
+        expect = EXPECTED_NAME.get(t, "")
+        if expect and expect not in name:
+            print(f"{t}: REFUSED — CIK {cik} returned '{payload.get('entityName')}', "
+                  f"expected a name containing '{expect}'. Fix TICKER_CIK.", file=sys.stderr)
+            continue
         rows = tidy(t, payload)
         path = out / f"{t}_facts.csv"
         with path.open("w", newline="") as fh:

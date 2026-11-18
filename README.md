@@ -14,6 +14,8 @@ asserted. Every number in a published note traces back to a script in this repos
 | `sql/queries.sql` | The practice set: revenue series, ratios, year-over-year growth with window functions |
 | `scripts/run_queries.py` | Runs `sql/queries.sql` and prints the result sets (stdlib only, no `sqlite3` CLI needed) |
 | `notes/` | Published research notes, one markdown file per company |
+| `data/manual/` | Hand-entered bank figures (Arab Bank: FY2024, FY2025, H1 2026) + the definitions that matter |
+| `sql/bank_queries.sql` | Bank ratios (ROE, NIM, cost/income, NPL), P/B vs P/E, and the implied-ROE identity |
 | `journal/` | Trading journal template (paper trading) — kept separate from the analysis |
 | `data/` | Generated. Not committed. |
 
